@@ -1,0 +1,12 @@
+
+services:
+  pong-ia:
+    build: .
+    container_name: pong_ia
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Montar el socket X11
+    environment:
+      - DISPLAY=${DISPLAY}  # Usar el display de la máquina anfitriona
+      - PYTHONUNBUFFERED=1
+    tty: true
